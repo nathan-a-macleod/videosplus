@@ -55,22 +55,58 @@
                 Business: {
                     videos: [
                         {
-                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
-                            title: "Business Video 1",
-                            description: "Description for Business Video 1",
-                            channelName: "Business Channel 1"
+                            src: "https://www.youtube.com/embed/bXLZ8I7s8tw",
+                            title: "5 Steps to Start Your First Business",
+                            description: "",
+                            channelName: "Ali Abdaal"
                         },
                         {
-                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
-                            title: "Business Video 2",
-                            description: "Description for Business Video 2",
-                            channelName: "Business Channel 2"
+                            src: "https://www.youtube.com/embed/d2JPEDpMiw8",
+                            title: "If I Started YouTube While Working Full-Time, I’d Do This",
+                            description: "",
+                            channelName: "Ali Abdaal"
                         },
                         {
-                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
-                            title: "Business Video 3",
-                            description: "Description for Business Video 3",
-                            channelName: "Business Channel 3"
+                            src: "https://www.youtube.com/embed/TmuDsq4m4Ts",
+                            title: "A Beginner's Guide to Making Money with Online Courses",
+                            description: "",
+                            channelName: "Ali Abdaal"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/5MjjpB8SPMo",
+                            title: "GENIUS Strategy To Make Everyone Want to Buy Your Stuff",
+                            description: "",
+                            channelName: "Alex Hormozi"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jzKpAtzKQ54",
+                            title: "Business Owners: You NEED to Know This Number",
+                            description: "",
+                            channelName: "Alex Hormozi"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/41EvCgwPrDc",
+                            title: "Make More Profit than 99% of Businesses",
+                            description: "",
+                            channelName: "Alex Hormozi"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/w0YQ40pIuYs",
+                            title: "63 Business Ideas In 22 Minutes | Make Money Online",
+                            description: "",
+                            channelName: "Simon Squibb"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/pfQL-M4lkdw",
+                            title: "How To Set Up A Business In 47 Minutes",
+                            description: "",
+                            channelName: "Simon Squibb"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/QIQYzi7IPGk",
+                            title: "30 Years Of Marketing Knowledge In 53 Minutes",
+                            description: "",
+                            channelName: "Simon Squibb"
                         },
                     ]
                 },
@@ -248,74 +284,121 @@
                         },
                     ]
                 },
+                Productivity: {
+                    videos: [
+                        {
+                            src: "https://www.youtube.com/embed/iuHuxX22OOQ",
+                            title: "How to Design Your Dream Life (in 7 Minutes)",
+                            description: "",
+                            channelName: "Ali Abdaal"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/zZ45ydPJg_U",
+                            title: "5 Productive Things I Do Instead of Mindless Scrolling",
+                            description: "",
+                            channelName: "Ali Abdaal"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/tjjqyiHczcc",
+                            title: "You're Destroying Your Mind - How to Control Dopamine",
+                            description: "",
+                            channelName: "Ali Abdaal"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/GIRkQQHzsxI",
+                            title: "This Simple Productivity System Made Me $100 Million",
+                            description: "",
+                            channelName: "Alex Hormozi"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/cfiw3lwrkp0",
+                            title: "I stay productive 98% of every day - Here's how",
+                            description: "",
+                            channelName: "Sebastian Ghiorghiu"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/-oXigF0frLE",
+                            title: "How to Achieve More in 1 Week than Most People Do in 12 months",
+                            description: "",
+                            channelName: "Clark Kegley"
+                        },
+                    ]
+                },
             };
 
 
             function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
-                }
-                return array;
-            }
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
-            function getRandomSample(array, n) {
-                return shuffleArray(array).slice(0, n);
-            }
+function getRandomSample(array, n) {
+    return shuffleArray(array).slice(0, n);
+}
 
-            const storedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
-            if (storedCategories == null) {
-                location.href = "index.html";
-            }
+const storedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
+if (storedCategories == null) {
+    location.href = "index.html";
+}
 
-            function addVideoToContainer(container, video) {
-                // Create a container for the video and its details
-                const videoWrapper = document.createElement('div');
-                videoWrapper.style.marginBottom = '64px'; // Add some spacing between videos
+function addVideoToContainer(container, video) {
+    // Create a container for the video and its details
+    const videoWrapper = document.createElement('div');
+    videoWrapper.style.marginBottom = '64px'; // Add some spacing between videos
 
-                // Create and configure the iframe
-                const iframe = document.createElement('iframe');
-                iframe.width = '560'; // Set width of iframe
-                iframe.height = '315'; // Set height of iframe
-                iframe.src = video.src;
-                iframe.frameBorder = '0';
-                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                iframe.allowFullscreen = true;
+    // Create and configure the iframe
+    const iframe = document.createElement('iframe');
+    iframe.width = '560'; // Set width of iframe
+    iframe.height = '315'; // Set height of iframe
+    iframe.src = video.src;
+    iframe.frameBorder = '0';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
 
-                // Create and configure the title element
-                const titleElement = document.createElement('h3');
-                titleElement.textContent = video.title;
+    // Create and configure the title element
+    const titleElement = document.createElement('h3');
+    titleElement.textContent = video.title;
 
-                // Create and configure the description element
-                const descriptionElement = document.createElement('p');
-                descriptionElement.textContent = video.description;
+    // Create and configure the description element
+    const descriptionElement = document.createElement('p');
+    descriptionElement.textContent = video.description;
 
-                // Create and configure the channel name element
-                const channelElement = document.createElement('p');
-                channelElement.textContent = `${video.channelName}`;
-                channelElement.style.fontWeight = 'bold'; // Optional: Make the channel name bold
+    // Create and configure the channel name element
+    const channelElement = document.createElement('p');
+    channelElement.textContent = `${video.channelName}`;
+    channelElement.style.fontWeight = 'bold'; // Optional: Make the channel name bold
 
-                // Append the iframe and details to the video wrapper
-                videoWrapper.appendChild(iframe);
-                videoWrapper.appendChild(titleElement);
-                videoWrapper.appendChild(descriptionElement);
-                videoWrapper.appendChild(channelElement);
+    // Append the iframe and details to the video wrapper
+    videoWrapper.appendChild(iframe);
+    videoWrapper.appendChild(titleElement);
+    videoWrapper.appendChild(descriptionElement);
+    videoWrapper.appendChild(channelElement);
 
-                // Append the video wrapper to the main container
-                container.appendChild(videoWrapper);
-            }
+    // Append the video wrapper to the main container
+    container.appendChild(videoWrapper);
+}
 
-            const container = document.getElementById("videoContainer");
+const container = document.getElementById("videoContainer");
 
-            for (const category of storedCategories) {
-                const videos = library[category].videos;
+let allVideos = [];
 
-                const randomVideos = getRandomSample(videos, 3);
+// Combine videos from all selected categories into one array
+for (const category of storedCategories) {
+    const videos = library[category].videos;
+    const randomVideos = getRandomSample(videos, 3);
+    allVideos = allVideos.concat(randomVideos);
+}
 
-                for (const video of randomVideos) {
-                    addVideoToContainer(container, video);
-                }
-            }
+// Shuffle the combined array of videos
+const shuffledVideos = shuffleArray(allVideos);
+
+// Display the videos
+for (const video of shuffledVideos) {
+    addVideoToContainer(container, video);
+}
 
         </script>
     </body>
