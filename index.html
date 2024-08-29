@@ -54,9 +54,13 @@
         <button id="continueBtn" onclick="location.href = 'setup.html'">Continue</button>
 
         <script>
+            function updateUrl(newUrl) {
+                history.pushState(null, '', newUrl);
+            }
+
             const storedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
             if (storedCategories) {
-                location.href = "main.html"
+                updateUrl("main.html");
             }
         </script>
     </body>
