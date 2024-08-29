@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Videos Plus Start Screen</title>
+        <title>Videos Plus Main Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -13,7 +13,14 @@
         <style>
             body{
                 margin: 56px;
-                
+            }
+
+            h2{
+                font-size: 32px;
+                font-family: "Lato", sans-serif;
+                font-weight: 900;
+                font-style: normal;
+                letter-spacing: -1.28px;
             }
 
             p{
@@ -23,39 +30,34 @@
                 font-style: normal;
             }
 
-            h1{
-                font-size: 48px;
+            h3{
+                font-size: 24px;
                 font-family: "Lato", sans-serif;
                 font-weight: 900;
                 font-style: normal;
-                letter-spacing: -2.5px;
-            }
-
-            button{
-                width: 100%;
-                background-color: #DD5930;
-                border: 0px;
-                padding: 10px;
-                border-radius: 8px;
-                color: #fff;
-                font-family: "Lato", sans-serif;
-                font-weight: 700;
-                font-style: normal;
+                letter-spacing: -0.96px;
             }
         </style>
     </head>
     <body>
-        <div id="mainContent">
-            <img src="favicon.png" />
-            <h1>Welcome to <span style="color: #DD5930">Videos Plus</span></h1>
-            <p>High-quality videos from creators you love, in one place.</p>
-        </div>
-        <button id="continueBtn" onclick="location.href = 'setup.html'">Continue</button>
-
+        <h2>Home</h2>
+        <p>General</p>
+        <h3>Latest</h3>
         <script>
+            const library = [
+                {
+                    url: "https://www.youtube.com/@ColdFusion",
+                    categories: ["Business", "Technology", "Health", "Lifestyle", "Finance", "Politics", "Science"]
+                },
+                {
+                    url: "https://www.youtube.com/@halfasinteresting",
+                    categories: ["Business", "Technology", "Health", "Lifestyle", "Finance", "Politics", "Science"]
+                },
+            ];
+
             const storedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
             if (storedCategories) {
-                location.href = "main.html"
+                console.log('Stored categories:', storedCategories);
             }
         </script>
     </body>

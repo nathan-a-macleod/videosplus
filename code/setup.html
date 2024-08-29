@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Videos Plus Setup Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <link rel="icon" type="image/x-icon" href="favicon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+        <style>
+            body{
+                margin: 56px;
+            }
+
+            p{
+                color: #434343;
+                font-family: "Lato", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            h2{
+                font-size: 32px;
+                font-family: "Lato", sans-serif;
+                font-weight: 900;
+                font-style: normal;
+                letter-spacing: -1.28px;
+            }
+
+            button{
+                width: 100%;
+                background-color: #DD5930;
+                border: 0px;
+                padding: 10px;
+                border-radius: 8px;
+                color: #fff;
+                font-family: "Lato", sans-serif;
+                font-weight: 700;
+                font-style: normal;
+            }
+
+            #backBtn{
+                color: #DD5930;
+                background-color: #fff;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="backBtn" onclick="location.href = 'index.html'">< Back</button>
+        <div id="mainContent">
+            <h2>Select some topics that interest you</h1>
+            <p>4/6 Selected</p>
+            <form id="categoriesForm">
+                <label>
+                    <input type="checkbox" name="categories" value="Business">
+                    Business
+                </label>
+              
+                <label>
+                    <input type="checkbox" name="categories" value="Technology">
+                    Technology
+                </label>
+              
+                <label>
+                    <input type="checkbox" name="categories" value="Health">
+                    Health
+                </label>
+              
+                <label>
+                    <input type="checkbox" name="categories" value="Lifestyle">
+                    Lifestyle
+                </label>
+              
+                <label>
+                    <input type="checkbox" name="categories" value="Finance">
+                    Finance
+                </label>
+              
+                <label>
+                    <input type="checkbox" name="categories" value="Politics">
+                    Politics
+                </label>
+              
+                <label>
+                    <input type="checkbox" name="categories" value="Science">
+                    Science
+                </label>
+
+                <button type="button" onclick="saveToLocalStorage()">Continue</button>
+            </form>
+        </div>
+
+        <script>
+            function saveToLocalStorage() {
+                const checkboxes = document.querySelectorAll('input[name="categories"]:checked');
+                let selectedCategories = [];
+
+                checkboxes.forEach((checkbox) => {
+                    selectedCategories.push(checkbox.value);
+                });
+
+                localStorage.setItem('selectedCategories', JSON.stringify(selectedCategories));
+                console.log('Selected categories have been saved!');
+
+
+
+                const storedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
+                if (storedCategories) {
+                    console.log('Stored categories:', storedCategories);
+                }
+
+                location.href = "main.html";
+            }
+        </script>
+    </body>
+</html>
