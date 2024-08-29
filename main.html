@@ -47,85 +47,270 @@
     </head>
     <body>
         <h2>Home</h2>
-        <h3>Latest</h3>
+        <h3>Recommended</h3>
         <div id="videoContainer"></div>
         <script>
+
             const library = {
                 Business: {
                     videos: [
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Business Video 1",
+                            description: "Description for Business Video 1",
+                            channelName: "Business Channel 1"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Business Video 2",
+                            description: "Description for Business Video 2",
+                            channelName: "Business Channel 2"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Business Video 3",
+                            description: "Description for Business Video 3",
+                            channelName: "Business Channel 3"
+                        },
                     ]
                 },
                 Technology: {
                     videos: [
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Tech Video 1",
+                            description: "Description for Tech Video 1",
+                            channelName: "Tech Channel 1"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Tech Video 2",
+                            description: "Description for Tech Video 2",
+                            channelName: "Tech Channel 2"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Tech Video 3",
+                            description: "Description for Tech Video 3",
+                            channelName: "Tech Channel 3"
+                        },
                     ]
                 },
                 Health: {
                     videos: [
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Health Video 1",
+                            description: "Description for Health Video 1",
+                            channelName: "Health Channel 1"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Health Video 2",
+                            description: "Description for Health Video 2",
+                            channelName: "Health Channel 2"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Health Video 3",
+                            description: "Description for Health Video 3",
+                            channelName: "Health Channel 3"
+                        },
                     ]
                 },
                 Lifestyle: {
                     videos: [
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Lifestyle Video 1",
+                            description: "Description for Lifestyle Video 1",
+                            channelName: "Lifestyle Channel 1"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Lifestyle Video 2",
+                            description: "Description for Lifestyle Video 2",
+                            channelName: "Lifestyle Channel 2"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Lifestyle Video 3",
+                            description: "Description for Lifestyle Video 3",
+                            channelName: "Lifestyle Channel 3"
+                        },
                     ]
                 },
                 Finance: {
                     videos: [
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Finance Video 1",
+                            description: "Description for Finance Video 1",
+                            channelName: "Finance Channel 1"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Finance Video 2",
+                            description: "Description for Finance Video 2",
+                            channelName: "Finance Channel 2"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Finance Video 3",
+                            description: "Description for Finance Video 3",
+                            channelName: "Finance Channel 3"
+                        },
                     ]
                 },
                 Politics: {
                     videos: [
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Politics Video 1",
+                            description: "Description for Politics Video 1",
+                            channelName: "Politics Channel 1"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Politics Video 2",
+                            description: "Description for Politics Video 2",
+                            channelName: "Politics Channel 2"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/jlunz2q-x6M",
+                            title: "Politics Video 3",
+                            description: "Description for Politics Video 3",
+                            channelName: "Politics Channel 3"
+                        },
                     ]
                 },
                 Science: {
                     videos: [
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
-                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        {
+                            src: "https://www.youtube.com/embed/qf7ws2DF-zk",
+                            title: "Why Democracy Is Mathematically Impossible",
+                            description: "Democracy might be mathematically impossible – here’s why. Head to https://brilliant.org/veritasium to start your free 30-day trial and get 20% off an annual premium subscription.",
+                            channelName: "Veritasium"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/6akmv1bsz1M",
+                            title: "Something Strange Happens When You Follow Einstein's Math",
+                            description: "Einstein was wrong about black holes, what else? Use code veritasium at the link below to get an exclusive 60% off an annual Incogni plan: https://incogni.com/veritasium ",
+                            channelName: "Veritasium"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/AF8d72mA41M",
+                            title: "Why It Was Almost Impossible to Make the Blue LED",
+                            description: "The blue LED was supposed to be impossible—until a young engineer proposed a moonshot idea. Head to https://brilliant.org/veritasium to start your free 30-day trial...",
+                            channelName: "Veritasium"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/VPSm9gJkPxU",
+                            title: "Nature's Incredible ROTATING MOTOR (It’s Electric!) - Smarter Every Day 300",
+                            description: "",
+                            channelName: "SmarterEveryDay"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/bQF51mqzrY4",
+                            title: "I Accidentally Photographed Something Unknown During the Eclipse - Smarter Every Day 298",
+                            description: "",
+                            channelName: "SmarterEveryDay"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/oTfXehFVFyk",
+                            title: "The Amazing Engineering of Rescue Helicopters - Smarter Every Day 289",
+                            description: "",
+                            channelName: "SmarterEveryDay"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/XK4yjmApcHo",
+                            title: "The Strange Science of Why We Dream",
+                            description: "",
+                            channelName: "Be Smart"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/Fre1WqHPq_M",
+                            title: "The Sun is NOT the Center of the Solar System",
+                            description: "",
+                            channelName: "Be Smart"
+                        },
+                        {
+                            src: "https://www.youtube.com/embed/uJcXCdbm77g",
+                            title: "Space is Full of Junk. Here’s How to Clean It Up…",
+                            description: "",
+                            channelName: "Be Smart"
+                        },
                     ]
-                }
+                },
             };
+
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            function getRandomSample(array, n) {
+                return shuffleArray(array).slice(0, n);
+            }
 
             const storedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
             if (storedCategories == null) {
                 location.href = "index.html";
             }
 
+            function addVideoToContainer(container, video) {
+                // Create a container for the video and its details
+                const videoWrapper = document.createElement('div');
+                videoWrapper.style.marginBottom = '64px'; // Add some spacing between videos
+
+                // Create and configure the iframe
+                const iframe = document.createElement('iframe');
+                iframe.width = '560'; // Set width of iframe
+                iframe.height = '315'; // Set height of iframe
+                iframe.src = video.src;
+                iframe.frameBorder = '0';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+
+                // Create and configure the title element
+                const titleElement = document.createElement('h3');
+                titleElement.textContent = video.title;
+
+                // Create and configure the description element
+                const descriptionElement = document.createElement('p');
+                descriptionElement.textContent = video.description;
+
+                // Create and configure the channel name element
+                const channelElement = document.createElement('p');
+                channelElement.textContent = `Channel: ${video.channelName}`;
+                channelElement.style.fontWeight = 'bold'; // Optional: Make the channel name bold
+
+                // Append the iframe and details to the video wrapper
+                videoWrapper.appendChild(iframe);
+                videoWrapper.appendChild(titleElement);
+                videoWrapper.appendChild(descriptionElement);
+                videoWrapper.appendChild(channelElement);
+
+                // Append the video wrapper to the main container
+                container.appendChild(videoWrapper);
+            }
+
+            const container = document.getElementById("videoContainer");
+
             for (const category of storedCategories) {
-                for (const videoID of library[category].videos){
-                    const iframe = document.createElement('iframe');
-                    
-                    // Set attributes for the iframe
-                    iframe.width = '560';
-                    iframe.height = '315';
-                    iframe.src = videoID;
-                    iframe.frameBorder = '0';
-                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                    iframe.allowFullscreen = true;
+                const videos = library[category].videos;
 
-                    // Get the container element where the iframe will be added
-                    const container = document.getElementById("videoContainer");
+                const randomVideos = getRandomSample(videos, 3);
 
-                    // Append the iframe to the container
-                    container.appendChild(iframe);
+                for (const video of randomVideos) {
+                    addVideoToContainer(container, video);
                 }
             }
+
         </script>
     </body>
 </html>
