@@ -38,27 +38,93 @@
                 font-style: normal;
                 letter-spacing: -0.96px;
             }
+
+            iframe{
+                width: 100%;
+                height: 180px;
+            }
         </style>
     </head>
     <body>
         <h2>Home</h2>
-        <p>General</p>
         <h3>Latest</h3>
+        <div id="videoContainer"></div>
         <script>
-            const library = [
-                {
-                    url: "https://www.youtube.com/@ColdFusion",
-                    categories: ["Business", "Technology", "Health", "Lifestyle", "Finance", "Politics", "Science"]
+            const library = {
+                Business: {
+                    videos: [
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                    ]
                 },
-                {
-                    url: "https://www.youtube.com/@halfasinteresting",
-                    categories: ["Business", "Technology", "Health", "Lifestyle", "Finance", "Politics", "Science"]
+                Technology: {
+                    videos: [
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                    ]
                 },
-            ];
+                Health: {
+                    videos: [
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                    ]
+                },
+                Lifestyle: {
+                    videos: [
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                    ]
+                },
+                Finance: {
+                    videos: [
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                    ]
+                },
+                Politics: {
+                    videos: [
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                    ]
+                },
+                Science: {
+                    videos: [
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                        "https://www.youtube.com/embed/jlunz2q-x6M", 
+                    ]
+                }
+            };
 
             const storedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
-            if (storedCategories) {
-                console.log('Stored categories:', storedCategories);
+            if (storedCategories == null) {
+                location.href = "index.html";
+            }
+
+            for (const category of storedCategories) {
+                for (const videoID of library[category].videos){
+                    const iframe = document.createElement('iframe');
+                    
+                    // Set attributes for the iframe
+                    iframe.width = '560';
+                    iframe.height = '315';
+                    iframe.src = videoID;
+                    iframe.frameBorder = '0';
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                    iframe.allowFullscreen = true;
+
+                    // Get the container element where the iframe will be added
+                    const container = document.getElementById("videoContainer");
+
+                    // Append the iframe to the container
+                    container.appendChild(iframe);
+                }
             }
         </script>
     </body>
