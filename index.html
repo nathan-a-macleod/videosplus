@@ -51,16 +51,12 @@
             <h1>Welcome to <span style="color: #DD5930">Videos Plus</span></h1>
             <p>High-quality videos from creators you love, in one place.</p>
         </div>
-        <button id="continueBtn" onclick="location.href = 'setup.html'">Continue</button>
+        <button id="continueBtn" onclick="history.pushState(null, 'setup.html', newUrl);">Continue</button>
 
         <script>
-            function updateUrl(newUrl) {
-                history.pushState(null, '', newUrl);
-            }
-
             const storedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
             if (storedCategories) {
-                updateUrl("main.html");
+                history.replaceState(null, "main.html", newUrl);
             }
         </script>
     </body>
