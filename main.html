@@ -43,10 +43,34 @@
                 width: 100%;
                 height: 180px;
             }
+
+            button{
+                width: 100%;
+                background-color: #DD5930;
+                border: 0px;
+                padding: 10px;
+                border-radius: 8px;
+                color: #fff;
+                font-family: "Lato", sans-serif;
+                font-weight: 700;
+                font-style: normal;
+            }
+
+            #resetBtn{
+                background-color: #fff;
+                border: 2px #DD5930 solid;
+                color: #DD5930;
+            }
+
+            #refreshBtn{
+                margin-top: 24px;
+            }
         </style>
     </head>
     <body>
         <h2>Home</h2>
+        <button id="resetBtn" onclick="localStorage.setItem('selectedCategories', null); location.reload();">Reset Preferences</button>
+        <button id="refreshBtn" onclick="location.reload();">Refresh ⟳</button>
         <h3>Recommended</h3>
         <div id="videoContainer"></div>
         <script>
@@ -328,77 +352,77 @@
 
 
             function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
 
-function getRandomSample(array, n) {
-    return shuffleArray(array).slice(0, n);
-}
+            function getRandomSample(array, n) {
+                return shuffleArray(array).slice(0, n);
+            }
 
-const storedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
-if (storedCategories == null) {
-    location.href = "index.html";
-}
+            const storedCategories = JSON.parse(localStorage.getItem('selectedCategories'));
+            if (storedCategories == null) {
+                location.href = "index.html";
+            }
 
-function addVideoToContainer(container, video) {
-    // Create a container for the video and its details
-    const videoWrapper = document.createElement('div');
-    videoWrapper.style.marginBottom = '64px'; // Add some spacing between videos
+            function addVideoToContainer(container, video) {
+                // Create a container for the video and its details
+                const videoWrapper = document.createElement('div');
+                videoWrapper.style.marginBottom = '64px'; // Add some spacing between videos
 
-    // Create and configure the iframe
-    const iframe = document.createElement('iframe');
-    iframe.width = '560'; // Set width of iframe
-    iframe.height = '315'; // Set height of iframe
-    iframe.src = video.src;
-    iframe.frameBorder = '0';
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-    iframe.allowFullscreen = true;
+                // Create and configure the iframe
+                const iframe = document.createElement('iframe');
+                iframe.width = '560'; // Set width of iframe
+                iframe.height = '315'; // Set height of iframe
+                iframe.src = video.src;
+                iframe.frameBorder = '0';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
 
-    // Create and configure the title element
-    const titleElement = document.createElement('h3');
-    titleElement.textContent = video.title;
+                // Create and configure the title element
+                const titleElement = document.createElement('h3');
+                titleElement.textContent = video.title;
 
-    // Create and configure the description element
-    const descriptionElement = document.createElement('p');
-    descriptionElement.textContent = video.description;
+                // Create and configure the description element
+                const descriptionElement = document.createElement('p');
+                descriptionElement.textContent = video.description;
 
-    // Create and configure the channel name element
-    const channelElement = document.createElement('p');
-    channelElement.textContent = `${video.channelName}`;
-    channelElement.style.fontWeight = 'bold'; // Optional: Make the channel name bold
+                // Create and configure the channel name element
+                const channelElement = document.createElement('p');
+                channelElement.textContent = `${video.channelName}`;
+                channelElement.style.fontWeight = 'bold'; // Optional: Make the channel name bold
 
-    // Append the iframe and details to the video wrapper
-    videoWrapper.appendChild(iframe);
-    videoWrapper.appendChild(titleElement);
-    videoWrapper.appendChild(descriptionElement);
-    videoWrapper.appendChild(channelElement);
+                // Append the iframe and details to the video wrapper
+                videoWrapper.appendChild(iframe);
+                videoWrapper.appendChild(titleElement);
+                videoWrapper.appendChild(descriptionElement);
+                videoWrapper.appendChild(channelElement);
 
-    // Append the video wrapper to the main container
-    container.appendChild(videoWrapper);
-}
+                // Append the video wrapper to the main container
+                container.appendChild(videoWrapper);
+            }
 
-const container = document.getElementById("videoContainer");
+            const container = document.getElementById("videoContainer");
 
-let allVideos = [];
+            let allVideos = [];
 
-// Combine videos from all selected categories into one array
-for (const category of storedCategories) {
-    const videos = library[category].videos;
-    const randomVideos = getRandomSample(videos, 3);
-    allVideos = allVideos.concat(randomVideos);
-}
+            // Combine videos from all selected categories into one array
+            for (const category of storedCategories) {
+                const videos = library[category].videos;
+                const randomVideos = getRandomSample(videos, 2);
+                allVideos = allVideos.concat(randomVideos);
+            }
 
-// Shuffle the combined array of videos
-const shuffledVideos = shuffleArray(allVideos);
+            // Shuffle the combined array of videos
+            const shuffledVideos = shuffleArray(allVideos);
 
-// Display the videos
-for (const video of shuffledVideos) {
-    addVideoToContainer(container, video);
-}
+            // Display the videos
+            for (const video of shuffledVideos) {
+                addVideoToContainer(container, video);
+            }
 
         </script>
     </body>

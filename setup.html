@@ -16,7 +16,7 @@
                 margin: 56px;
             }
 
-            p{
+            p, label{
                 color: #434343;
                 font-family: "Lato", sans-serif;
                 font-weight: 400;
@@ -48,13 +48,16 @@
                 background-color: #fff;
                 text-align: left;
             }
+
+            label{
+                display:inline-block;
+            }
         </style>
     </head>
     <body>
         <button id="backBtn" onclick="location.href = 'index.html'">< Back</button>
         <div id="mainContent">
             <h2>Select some topics that interest you</h1>
-            <p>4/6 Selected</p>
             <form id="categoriesForm">
                 <label>
                     <input type="checkbox" name="categories" value="Business">
@@ -93,6 +96,11 @@
                 checkboxes.forEach((checkbox) => {
                     selectedCategories.push(checkbox.value);
                 });
+
+                if (selectedCategories.length === 0){
+                    alert("Please select at least one category before continuing.");
+                    return;
+                }
 
                 localStorage.setItem('selectedCategories', JSON.stringify(selectedCategories));
                 console.log('Selected categories have been saved!');
